@@ -20,8 +20,12 @@ public class InteractableObject : MonoBehaviour
             return;
 
         if (Keyboard.current.eKey.wasPressedThisFrame && playerInRange && SelectionManager.Instance.onTarget) {
-            Debug.Log("pick up item to inventory");
-            Destroy(gameObject);
+            if (!InventorySystem.Instance.CheckIfFull()) {
+                InventorySystem.Instance.AddToInventory(ItemName);
+                Destroy(gameObject);
+            } else {
+                Debug.Log("the inventory is full");
+            }
         }
     }
 
