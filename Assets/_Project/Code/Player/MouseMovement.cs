@@ -21,25 +21,27 @@ public class MouseMovement : MonoBehaviour
         if (Mouse.current == null)
             return;
 
-        Vector2 mouseDelta = Mouse.current.delta.ReadValue();
+        if (!InventorySystem.Instance.isOpen) {
+            Vector2 mouseDelta = Mouse.current.delta.ReadValue();
 
-        float mouseX = mouseDelta.x * mouseSensitivity * Time.deltaTime;
-        float mouseY = mouseDelta.y * mouseSensitivity * Time.deltaTime;
+            float mouseX = mouseDelta.x * mouseSensitivity * Time.deltaTime;
+            float mouseY = mouseDelta.y * mouseSensitivity * Time.deltaTime;
 
-        // Control rotation around X axis
-        xRotation -= mouseY;
+            // Control rotation around X axis
+            xRotation -= mouseY;
 
-        // Clamp vertical rotation
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            // Clamp vertical rotation
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        // Control rotation around Y axis
-        YRotation += mouseX;
+            // Control rotation around Y axis
+            YRotation += mouseX;
 
-        // Apply rotation
-        transform.localRotation = Quaternion.Euler(
-            xRotation,
-            YRotation,
-            0f
-        );
+            // Apply rotation
+            transform.localRotation = Quaternion.Euler(
+                xRotation,
+                YRotation,
+                0f
+            );
+        }  
     }
 }
