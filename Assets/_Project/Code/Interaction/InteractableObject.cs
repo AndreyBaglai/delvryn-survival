@@ -19,7 +19,7 @@ public class InteractableObject : MonoBehaviour
         if (Keyboard.current == null)
             return;
 
-        if (Keyboard.current.eKey.wasPressedThisFrame && playerInRange && SelectionManager.Instance.onTarget) {
+        if (Keyboard.current.eKey.wasPressedThisFrame && playerInRange && SelectionManager.Instance.onTarget && SelectionManager.Instance.selectedObject == gameObject) {
             if (!InventorySystem.Instance.CheckIfFull()) {
                 InventorySystem.Instance.AddToInventory(ItemName);
                 Destroy(gameObject);

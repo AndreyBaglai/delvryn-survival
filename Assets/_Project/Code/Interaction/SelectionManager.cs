@@ -14,6 +14,8 @@ public class SelectionManager : MonoBehaviour
 
     public bool onTarget;
 
+    public GameObject selectedObject;
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -45,9 +47,13 @@ public class SelectionManager : MonoBehaviour
 
             if (interactable != null && interactable.playerInRange)
             {
+                onTarget = true;
+
+                selectedObject = interactable.gameObject;
+
                 interaction_text.text = interactable.GetItemName();
                 interaction_Info_UI.SetActive(true);
-                onTarget = true;
+               
                 return;
             }
         }

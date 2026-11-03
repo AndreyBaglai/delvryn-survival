@@ -52,7 +52,6 @@ public class InventorySystem : MonoBehaviour
 
         if (Keyboard.current.iKey.wasPressedThisFrame && !isOpen)
         {
-		      	Debug.Log("i is pressed");
             inventoryScreenUI.SetActive(true);
 
             Cursor.lockState = CursorLockMode.None;
