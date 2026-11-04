@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using TMPro;
 
 public class SelectionManager : MonoBehaviour
@@ -9,6 +10,9 @@ public class SelectionManager : MonoBehaviour
     [Header("Interaction UI")]
     [SerializeField] private GameObject interaction_Info_UI;
     [SerializeField] private TMP_Text interaction_text;
+
+    public Image centerDotImage;
+    public Image handIcon;
 
     private Camera mainCamera;
 
@@ -53,12 +57,22 @@ public class SelectionManager : MonoBehaviour
 
                 interaction_text.text = interactable.GetItemName();
                 interaction_Info_UI.SetActive(true);
+
+                if (interactable.CompareTag("pickable")) {
+                    centerDotImage.gameObject.SetActive(false);
+                    handIcon.gameObject.SetActive(true);
+                } else {
+                    handIcon.gameObject.SetActive(false);
+                    centerDotImage.gameObject.SetActive(true);
+                }
                
                 return;
             }
         }
 
         interaction_Info_UI.SetActive(false);
-         onTarget = false;
+        onTarget = false;
+        handIcon.gameObject.SetActive(false);
+        centerDotImage.gameObject.SetActive(true);
     }
 }

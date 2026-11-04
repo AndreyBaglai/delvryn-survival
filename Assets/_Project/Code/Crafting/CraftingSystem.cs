@@ -50,8 +50,6 @@ public class CraftingSystem : MonoBehaviour
     }
 
     void Update() {
-        RefreshNeededItemsToCraft();
-
         if (Keyboard.current == null)
             return;
 
@@ -94,11 +92,9 @@ public class CraftingSystem : MonoBehaviour
       }
 
       StartCoroutine(Calculate());
-
-      RefreshNeededItemsToCraft();
     }
 
-    private void RefreshNeededItemsToCraft() {
+    public void RefreshNeededItemsToCraft() {
       int stone_count = 0;
       int stick_count = 0;
 
@@ -127,8 +123,8 @@ public class CraftingSystem : MonoBehaviour
     }
 
     public IEnumerator Calculate() {
-      yield return new WaitForSeconds(1f);
-
+      yield return 0;
       InventorySystem.Instance.ReCalculateList();
+      RefreshNeededItemsToCraft();
     }
 }

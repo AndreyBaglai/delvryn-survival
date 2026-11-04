@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8603111678570115993}
   m_Layer: 0
   m_Name: Stick
-  m_TagString: Untagged
+  m_TagString: pickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8091492767427578287}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.08939984, y: -0.04507231, z: 0.0077023627, w: 0.9949457}
-  m_LocalPosition: {x: 49.333, y: -0.224, z: 22.736}
-  m_LocalScale: {x: 0.3256, y: 0.13995662, z: 0.25552934}
+  m_LocalRotation: {x: -0.019151099, y: -0.044418417, z: 0.010855575, w: 0.9987705}
+  m_LocalPosition: {x: 50.56796, y: -0.111045, z: 22.501186}
+  m_LocalScale: {x: 0.18990697, y: 0.10536171, z: 0.13251387}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -10.207, y: -5.309, z: 1.362}
+  m_LocalEulerAnglesHint: {x: -2.137, y: -5.118, z: 1.341}
 --- !u!33 &3210024447667838133
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -133,7 +133,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 15, y: 10, z: 15}
+  m_Size: {x: 25, y: 15, z: 25}
   m_Center: {x: 5.291325, y: 1.3636149, z: 0.238895}
 --- !u!114 &8603111678570115993
 MonoBehaviour:
